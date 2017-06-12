@@ -1,5 +1,4 @@
 spring:
-  profiles: local
   devtools:
     livereload:
       enabled: true
@@ -7,7 +6,7 @@ spring:
     cache: false
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
       use-new-id-generator-mappings: true
     show-sql: true
     database: mysql
@@ -19,10 +18,12 @@ spring:
         use_sql_comments: true
         format_sql: true
   datasource:
-#    url: jdbc:mysql://115.68.157.39:3306/copykiller?useUnicode=true&characterEncoding=utf8
     url: jdbc:mysql://localhost:3306/copykiller?useUnicode=true&characterEncoding=utf8
     username: copykiller
     password: ehdir2.0
     driver-class-name: com.mysql.jdbc.Driver
+logging:
+  level:
+    orgspringframework.transaction.interceptor: TRACE
 server:
   port: 8080
