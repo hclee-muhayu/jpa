@@ -1,0 +1,19 @@
+spring:
+  profiles: local
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+#    url: jdbc:mysql://115.68.157.39:3306/copykiller?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/copykiller?useUnicode=true&characterEncoding=utf8
+    username: copykiller
+    password: ehdir2.0
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 8080
