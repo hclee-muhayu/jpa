@@ -41,10 +41,11 @@ public class Order {
     }
 
     public void cancel() {
-        Optional.of(delivery.getStatus()).filter(deliveryStatus -> deliveryStatus != DeliveryStatus.COMP).orElseThrow(() -> new RuntimeException("이미 배송 완료된 상품은 취소가 불가능 합니다"));
+        if (delivery.getStatus() == DeliveryStatus.COMP) {
+            throw new RuntimeException("이미 배송 완료된 상품은 취소가 불가능 합니다");
+        }
         this.setStatus(OrderStatus.CANCEL);
         orderItems.forEach(OrderItem::cancel);
-
     }
 
     public int getTotalPrice() {
