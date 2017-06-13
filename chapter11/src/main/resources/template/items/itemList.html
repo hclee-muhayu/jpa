@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Project List</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>상품명</th>
+        <th>가격</th>
+        <th>재고수량</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="item" type="com.muhayu.domain.item.Item"*/-->
+    <!--/*@thymesVar id="items" type="List<com.muhayu.domain.item.Item>"*/-->
+    <tr th:each="item : ${items}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.price}"></td>
+        <td th:text="${item.stockQuantity}"></td>
+        <td><a th:href="@{|/items/${item.id}/edit|}">수정</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

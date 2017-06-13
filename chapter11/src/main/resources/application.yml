@@ -22,6 +22,11 @@ spring:
     username: copykiller
     password: ehdir2.0
     driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+    prefix: classpath:/template/
+    suffix: .html
 logging:
   level:
     orgspringframework.transaction.interceptor: TRACE
